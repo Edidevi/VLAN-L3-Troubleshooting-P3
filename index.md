@@ -1,6 +1,6 @@
 ---
 layout: troubleshooting
-title: VLAN L3 Troubleshooting — P2
+title: VLAN L3 Troubleshooting — P3
 description: "Enterprise inter-VLAN support scenarios. Real-world incident tickets simulating network faults across a Layer 3 switched environment."
 diagram: https://github.com/user-attachments/assets/6eaf30bc-db18-47cd-b55a-79eddaa9899e
 
@@ -78,5 +78,4 @@ learnings:
   - "Use prior service desk findings to guide your starting point — avoid robotic layer-by-layer checks when the fault area can already be narrowed down."
   - "Always verify SVI IP addresses match the expected first usable address in the subnet — incorrect SVIs silently break inter-VLAN routing."
   - "A mismatch between end device default gateways and SVI addresses means traffic will never reach its destination, even if all other config is correct."
-  - "The <code>show ip interface brief</code> command is a quick and effective way to spot SVI IP address misconfigurations."
 ---
