@@ -22,10 +22,26 @@ THe ping was succesful, which isolated the issue to this area
 - Now that i had isolated the possible fault, I enabled ip routing on D1.
 - Pinged HR2 to see any chnage, saw no change.
 - Typed `ip route` on D1, saw connected routes for all 3 networks.
-- I then typed `show vlan` on all switches to see if one vlan wasn't aloowed saw nothing
-Checked back on D1 after looking at all pc default gateways, saw that all SVI ip addresses were misconfigured
-I saw beforehand, that the ip addresses were not the first ip address in the subnet and thought nothing of it, until comparing it with the default gaeway set on the recieving end
-changed all svis to the first ip addresses in the subnet
+
+<img width="550" height="132" alt="image" src="https://github.com/user-attachments/assets/cbc25357-a674-4674-a605-61b3ce7035b0" />
+
+- From my ccna study, i know there is no need to configure routes manually.
+- I then typed `show vlan` on both switches to see if interfaces were assigned to VLANs properly, I still saw no issues.
+- My next step was to check the IP addresses at the PCs, do they have the right IP addresses? THe right default gateways?
+- I then saw the default gateways wre configured incorreclty,they werent the 1st Ip in the subnet
+- Entered `show ip interface brief` on D1, I could check the SVI IP addresses, saw that all SVI ip addresses looked abnormal, they weren't the 1st ip address in the subnet.
+
+ <img width="287" height="85" alt="image" src="https://github.com/user-attachments/assets/5c508fe2-333b-439a-8f62-50ab92fa7537" />
+
+- I used the following commands in global config mode,  `interface vlan (vlan id)` then `ip-address (ip address) (subnet mask)`
+- I amended all svi ip addresses to the first ip addresses in the subnet
+
+
+
+
+
+
+
 Then pinged HR2 from sales 1 and it was succesful
 THen pinged IT1 from sales 1 and it was succesful
 
