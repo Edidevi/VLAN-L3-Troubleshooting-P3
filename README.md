@@ -12,16 +12,17 @@ Scenarios for enterprise inter-VLAN support
 
 
 **<ins>Step 1: Layer 1</ins>**
-- Instead of moving robotically, like in the previous labs. 
-- I decided to base my troubleshooting off of the work already doen by the service desk team.
-- Then pinged the SVI for vlan 20 (172.16.20.1) from sales 1 to try and isolate issue
-- got succesful ping to SVI for vlan 20
+- Instead of moving robotically, I decided to base my troubleshooting off of the work already done by the service desk team.
+- I then pinged the SVI for vlan 20 (172.16.20.1) from sales 1 to try and isolate issue
+THe ping was succesful, which isolated the issue to this area
+<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/5ceb5d57-daa4-4bee-aa4c-a0480a1ba2dc" />
 
-**<ins>Step 2: Layer 2 & L3</ins>**
+**<ins>Step 2: The layer 3 switch or the layer  switches?</ins>**
 
-then enabled ip routing on d1, then pinged HR2 to see any chnage
-no change, so checked ip route on D1, saw there was a connected route for all 3 networks 
-checked show vlan on all switches to see if one vlan wasn't aloowed saw nothing
+- Now that i had isolated the possible fault, I enabled ip routing on D1.
+- Pinged HR2 to see any chnage, saw no change.
+- Typed `ip route` on D1, saw connected routes for all 3 networks.
+- I then typed `show vlan` on all switches to see if one vlan wasn't aloowed saw nothing
 Checked back on D1 after looking at all pc default gateways, saw that all SVI ip addresses were misconfigured
 I saw beforehand, that the ip addresses were not the first ip address in the subnet and thought nothing of it, until comparing it with the default gaeway set on the recieving end
 changed all svis to the first ip addresses in the subnet
