@@ -71,8 +71,8 @@ incidents:
 
     resolution:
       - "Sales could not reach HR or IT because the end device default gateway IP addresses and the SVI IP addresses did not match."
-      - "Even if everything else was configured correctly, the IP mismatch meant traffic never reached the intended destination."
       - "The initial ping to 172.16.20.1 succeeded only because that address was pinged directly — not the actual misconfigured SVI address."
+      - Reconfiguring the SVIs solved the issue.
 
 learnings:
   - "Use prior service desk findings to guide your starting point — avoid robotic layer-by-layer checks when the fault area can already be narrowed down."
